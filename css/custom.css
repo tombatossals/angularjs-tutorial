@@ -1,0 +1,76 @@
+.reveal .slides > section.fullscreen h1 {
+  color: black;
+  background: white;
+  padding: 0.2em 1em;
+  font-family: "Impact";
+  font-size: 1.5em;
+  width: 100%;
+  opacity: .5;
+  position: absolute;
+  top: -6em;
+  border-radius: 12px;
+  margin: 0;
+  text-align: center;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+}
+
+.reveal section img.logo {
+  position: absolute;
+  z-index: -100;
+  opacity: .6;
+  top: 0;
+  left: -100px;
+  border: 0px;
+  height: 100%;
+}
+
+.reveal section.left img.logo {
+  position: absolute;
+  z-index: -100;
+  opacity: .6;
+  top: 0px;
+  left: auto;
+  right: -100px;
+  border: 0px;
+  height: 100%;
+}
+
+.reveal section.right {
+  text-align: right;
+}
+
+.reveal section.left {
+  text-align: left;
+}
+
+.reveal h4.pdf img {
+  border: 0px;
+  display: inline;
+  vertical-align: middle;
+}
+
+.reveal h4.pdf a {
+  vertical-align: middle;
+}
+
+.white {
+  color: white;
+}
+
+.white h2 {
+  color: white;
+  background: #024747;
+  padding: .3em;
+}
+
+.reveal pre {
+    box-shadow: 0 0 0;
+    width: 100%;
+}
+
+.reveal li {
+    margin-bottom: 1em;
+}

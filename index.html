@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Tutorial sencillo de AngularJS</title>
+
+        <meta name="description" content="Introducción a AngularJS">
+        <meta name="author" content="David Rubert">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/default.css" id="theme">
+        <link rel="stylesheet" href="css/custom.css" />
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <img class="logo" src="images/logo.png" />
+                    <div style="margin-left: 3em;">
+                        <h1 style="font-size: 2.8em">AngularJS</h1>
+                        <h3>Introducción y primeros pasos</h3>
+                        <p>
+                            <small><a href="">+ David Rubert</a> / <a href="http://twitter.com/tombatossals">@tombatossals</a></small>
+                        </p>
+                        <h4 class="pdf"><img src="images/pdf.64.png" /> <a href="/dev/reveal.js/?print-pdf">Guardar como PDF</a></h4>
+                    </div>
+                </section>
+
+                <section data-background="#4d7e65" class="white">
+                    <h2>Qué es AngularJS</h2>
+                    <p>
+                        Una tecnología nueva en la capa de cliente que nos permite realizar cosas chachis en nuestras páginas sin necesidad de montar jaleos de código. Separa muy bien la responsabilidad de cada tecnología en su ámbito: CSS, HTML y Javascript, y las comunica cuando lo considera necesario.
+                    <p>
+                </section>
+
+                <section class="white left" data-background="#007777">
+                    <section>
+                        <h2>Por qué AngularJS</h2>
+                        <p style="margin-top: 2em;"><strong>Característica principal.</strong> No manosees el árbol DOM para acceder al valor de un elemento.</p>
+                        <pre>
+                            <code>
+// Esto noooooo por favoooor!
+var titulo = $("#elem").up("li").first("p").down("span.olala").val();
+
+// Esto se ve mejor :)
+var titulo = $scope.titulo;
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h2>Por qué AngularJS</h2>
+                        <p>Esto se consigue actualizando la vista automáticamente cuando cambia el modelo, o viceversa. <strong>Two-way data binding.</strong></p>
+                        <img style="width: 500px; float: right;" src="images/twoway.png" />
+                    </section>
+                    <section>
+                        <h2>Por qué AngularJS</h2>
+                        <p>Disponemos de plantillas que extienden el vocabulario del código HTML para proporcionarnos la introducción de lógica en la representación de nuestra información.</p>
+                        <pre>
+                            <code>
+&lt;div ng-controller="AlbumCtrl"&gt;
+  &lt;ul&gt;
+    &lt;li ng-repeat="image in images"&gt;
+      &lt;img ng-src="{{image.thumbnail}}" alt="{{image.description}}"&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h2>Por qué AngularJS</h2>
+                        <ol start="3">
+                            <li><strong>Reausability</strong>. Permite crear componentes (directivas) fácilmente reutilizables (que permiten aislar totalmente su función, no chocan con otros).</li>
+                            <li><strong>Testing</strong>. Al tener componentes aislados, podemos testear su comportamiento de manera independiente.</li>
+                            <li><strong>Inyección de dependencias</strong>. Si necesitamos hacer uso de un servicio, lo inyectamos en nuestro controlador directamente y funciona.</li>
+                        <ol>
+                    </section>
+                </section>
+
+                <section class="white left" data-background="#007777">
+                    <section>
+                        <h2>Vocabulario</h2>
+                        <p>
+                            <strong>Scope</strong>. Es el responsable de detectar los cambios en el modelo y proporciona el contexto a las plantillas.
+                        </p>
+                        <pre>
+                            <code>
+&lt;!doctype html&gt;
+&lt;html ng-app&gt;
+  &lt;head&gt; ...  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div ng-controller="GreetCtrl"&gt;
+      Hello {{name}}!
+    &lt;/div&gt;
+    &lt;div ng-controller="ListCtrl"&gt;
+      &lt;ol&gt;
+        &lt;li ng-repeat="name in names"&gt;{{name}}&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                            </code>
+                        </pre>
+                    </section>
+
+                    <section>
+                        <h2>Vocabulario</h2>
+                        <p>
+                            <strong>Controlador</strong>. Es el código con la lógica que comunica el modelo con la vista.
+                        </p>
+                        <img style="border: 0px; width: 500px; float: right;" src="images/concepts-controller.png" />
+                    </section>
+
+                    <section>
+                        <h2>Vocabulario</h2>
+                        <p>
+                            <strong>Modelo</strong>. Son los datos, que junto con la plantilla producen las vistas.
+                        </p>
+                        <img style="border: 0px; width: 500px; float: right;" src="images/concepts-model.png" />
+                    </section>
+
+                    <section>
+                        <h2>Vocabulario</h2>
+                        <p>
+                            <strong>Vistas</strong>. Lo que el usuario visualiza. Parte de una plantilla, se funde con el modelo y se renderiza en el árbol DOM.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>Vocabulario</h2>
+                        <p>
+                            <strong>Vistas</strong>. Lo que el usuario visualiza. Parte de una plantilla, se funde con el modelo y se renderiza en el árbol DOM.
+                        </p>
+                    </section>
+                </section>
+
+                <section class="fullscreen">
+                    <section data-background="images/shutup.jpg">
+                        <h1>Now you say: Shut up and take my money!</h1>
+                    </section>
+                    <section data-background="images/wait.jpg">
+                    </section>
+                    <section data-background="images/slowly.jpg">
+                        <h1>Let's go slowly inside the code!</h1>
+                    </section>
+                </section>
+
+                <section>
+                    <h1 style="line-height: 3em; font-weight: bold;">Introducció</h1>
+                    <img class="logo" src="images/OSMlogo.png" />
+                </section>
+
+                <section class="right">
+                    <h2>Introducción</h2>
+                    <img class="logo" src="images/OSMlogo.png" />
+                    <p>OpenStreetMap es un mapa libremente editable de todo el mundo. Está hecho por personas como usted.</p>
+                    <p>OpenStreetMap es un mapa libremente editable de todo el mundo. Está hecho por personas como usted.</p>
+                </section>
+
+                <section class="left">
+                    <h2>Introducción</h2>
+                    <img class="logo" src="images/OSMlogo.png" />
+                    <p>OpenStreetMap es un mapa libremente editable de todo el mundo. Está hecho por personas como usted.</p>
+                    <p>OpenStreetMap es un mapa libremente editable de todo el mundo. Está hecho por personas como usted.</p>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                mouseWheel: true,
+                overview: false,
+
+                width: 900,
+                height: 700,
+
+                theme: Reveal.getQueryHash().theme || 'sky', // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+                backgroundTransition: 'slide',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+
+            Reveal.addEventListener( 'ready', function( event ) {
+                if (window.location.search.match( /print-pdf/gi )) {
+                    window.print();
+                }
+            } );
+
+        </script>
+
+    </body>
+</html>
