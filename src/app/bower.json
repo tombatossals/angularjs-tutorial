@@ -1,0 +1,17 @@
+{
+  "name": "puzzle.js",
+  "version": "0.0.1",
+  "main": "puzzle.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "fabric": "latest",
+    "angular": "latest",
+    "font-awesome": "latest",
+    "bootstrap": "latest"
+  }
+}

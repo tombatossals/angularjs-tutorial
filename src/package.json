@@ -1,0 +1,42 @@
+{
+  "name": "angularjs-tutorial",
+  "version": "0.0.1",
+  "description": "AngularJS Tutorial App",
+  "homepage": "https://github.com/tombatossals/angularjs-tutorial",
+  "scripts": {
+    "test": "grunt jshint",
+    "start": ""
+  },
+  "author": {
+    "name": "David Rubert",
+    "email": "david.rubert@gmail.com",
+    "web": "http://tombatossals.github.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tombatossals/angularjs-tutorial.js.git"
+  },
+  "engines": {
+    "node": "~0.10.0"
+  },
+  "dependencies": {
+    "underscore": "~1.4.4",
+    "express": "~3.3.1",
+    "mustache": "~0.7.2",
+    "socket.io": "~0.9.12"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-connect": "~0.3.0",
+    "bower": "~0.9.2",
+    "grunt-cli": "~0.1.9",
+    "grunt": "~0.4.1"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/tombatossals/puzzle.js/blob/master/LICENSE"
+    }
+  ]
+}
