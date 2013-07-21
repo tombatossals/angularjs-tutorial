@@ -1,0 +1,28 @@
+body {
+    margin: 1em;
+}
+
+h1 {
+    font-size: 4em;
+    margin: 0em 0em 1em;
+}
+
+div.center {
+    background: #888;
+    font-weight: bold;
+    border-radius: 8px;
+    color: white;
+    padding: 1em;
+    margin-top: 2em;
+    text-align: center;
+    box-shadow: 0 0 10px #555;
+    width: 50%;
+}
+
+div.center > h1 {
+    margin: 0;
+}
+
+div.center > h2 {
+    margin: 0;
+}

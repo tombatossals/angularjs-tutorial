@@ -1,17 +1,14 @@
 {
-  "name": "puzzle.js",
+  "name": "angularjs-tutorial",
   "version": "0.0.1",
-  "main": "puzzle.js",
+  "main": "angularjs-tutorial",
   "ignore": [
     "**/.*",
     "node_modules",
     "components"
   ],
   "dependencies": {
-    "jquery": "latest",
-    "fabric": "latest",
-    "angular": "latest",
-    "font-awesome": "latest",
-    "bootstrap": "latest"
+    "jquery": "~2.0",
+    "angular": "1.0"
   }
 }

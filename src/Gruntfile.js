@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
 
-    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-karma');
@@ -13,12 +12,12 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/<%= pkg.name %>.min.js': ['src/angular-leaflet-directive.js']
+                    'app/js/<%= pkg.name %>.min.js': ['app/js/app.js']
                 }
             }
         },
         jshint: {
-            files: ['Gruntfile.js', 'src/*.js', 'test/unit/*.js'],
+            files: ['Gruntfile.js', 'app/js/*.js', 'test/unit/*.js'],
             options: {
                 // options here to override JSHint defaults
                 globals: {

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="HelloWorldApp">
+<head>
+    <meta charset="utf-8">
+    <title>My AngularJS App</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body ng-controller="HelloWorldController">
+    <h1>My Hello World Angular App</h1>
+    <form>
+        <fieldset>
+            <label>Your name:</label>
+            <input type="text" ng-model="name" placeholder="Insert your name" />
+            <label>Insert the circle perimeter number:</label>
+            <input type="number" ng-model="perimeter" placeholder="Insert a number" min="0" />
+        </fieldset>
+        <div ng-show="name" class="center">
+            <h1>Hello {{ name }}</h1>
+            <h2 ng-show="name && perimeter">As you know, 2 * pi * {{ perimeter }} = {{ circlePerimeter() }}</h2>
+        </div>
+    </form>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.0.3.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

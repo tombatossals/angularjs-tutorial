@@ -28,7 +28,7 @@
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-uglify": "~0.2.2",
-    "grunt-contrib-connect": "~0.3.0",
+    "grunt-karma": "~0.4.5",
     "bower": "~0.9.2",
     "grunt-cli": "~0.1.9",
     "grunt": "~0.4.1"
@@ -36,7 +36,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/tombatossals/puzzle.js/blob/master/LICENSE"
+      "url": "https://github.com/tombatossals/angularjs-tutorial/LICENSE"
     }
   ]
 }
