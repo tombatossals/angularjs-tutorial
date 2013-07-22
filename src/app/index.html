@@ -9,18 +9,29 @@
 </head>
 <body ng-controller="HelloWorldController">
     <h1>My Hello World Angular App</h1>
-    <form>
-        <fieldset>
-            <label>Your name:</label>
-            <input type="text" ng-model="name" placeholder="Insert your name" />
-            <label>Insert the circle perimeter number:</label>
-            <input type="number" ng-model="perimeter" placeholder="Insert a number" min="0" />
-        </fieldset>
-        <div ng-show="name" class="center">
-            <h1>Hello {{ name }}</h1>
-            <h2 ng-show="name && perimeter">As you know, 2 * pi * {{ perimeter }} = {{ circlePerimeter() }}</h2>
+    <div class="row-fluid">
+        <div class="span5">
+            <form>
+                <fieldset>
+                    <label>Your name:</label>
+                    <input type="text" ng-model="name" placeholder="Insert your name" />
+                </fieldset>
+
+                <div ng-show="name" class="center" ng-cloak>
+                    <h1>Hello {{ name }}</h1>
+                    <fieldset>
+                        <label>Insert a number:</label>
+                        <input type="number" ng-model="number" placeholder="Insert a number" min="0" />
+                        <span ng-show="numberError" ng-cloak class="label label-important">Bad number man</span>
+                    </fieldset>
+                    <div ng-show="number" ng-cloak>
+                        <p>What do you want to know?</p>
+                        <h2 ng-show="name && number" ng-cloak>As you know, 2 * pi * {{ number }} = {{ circlePerimeter() | number: 2 }}</h2>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="//code.jquery.com/jquery-2.0.3.js"></script>

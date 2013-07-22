@@ -16,13 +16,4 @@ div.center {
     margin-top: 2em;
     text-align: center;
     box-shadow: 0 0 10px #555;
-    width: 50%;
-}
-
-div.center > h1 {
-    margin: 0;
-}
-
-div.center > h2 {
-    margin: 0;
 }
