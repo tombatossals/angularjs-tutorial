@@ -17,3 +17,7 @@ div.center {
     text-align: center;
     box-shadow: 0 0 10px #555;
 }
+
+img {
+    width: 320px;
+}
