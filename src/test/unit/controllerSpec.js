@@ -17,10 +17,17 @@ describe('Application: Hello World', function() {
         }));
 
         it('should calculate the circle perimeter', function() {
-            scope.perimeter = 6;
+            scope.number = 6;
             var result = scope.circlePerimeter();
 
             expect(result).toBeCloseTo(2 * Math.PI * 6);
+        });
+
+        it('should calculate the circle area', function() {
+            scope.number = 6;
+            var result = scope.circleArea();
+
+            expect(result).toBeCloseTo(Math.PI * Math.pow(6, 2));
         });
     });
 });
