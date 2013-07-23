@@ -1,42 +1,44 @@
 <!doctype html>
-<html lang="en" ng-app="HelloWorldApp">
+<html lang="en" ng-app="FlagQuizApp">
 <head>
     <meta charset="utf-8">
     <title>My AngularJS App</title>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://cloud.github.com/downloads/lafeber/world-flags-sprite/flags32.css" />
     <link rel="stylesheet" href="css/app.css"/>
 </head>
-<body ng-controller="HelloWorldController">
-    <h1>My Hello World Angular App</h1>
-    <div class="row-fluid">
-        <div class="span5">
-            <form>
-                <fieldset>
-                    <label>Your name:</label>
-                    <input type="text" ng-model="name" placeholder="Insert your name" />
-                </fieldset>
+<body ng-controller="FlagQuizController">
 
-                <div ng-show="name" class="center" ng-cloak>
-                    <h1 id="greeting">Hello {{ name }}</h1>
-                    <fieldset>
-                        <label>Insert a number:</label>
-                        <input type="text" ng-model="number" placeholder="Insert a number" min="0" />
-                        <span ng-show="numberError" ng-cloak class="label label-important">Bad number man</span>
-                    </fieldset>
-                    <div ng-show="number && !numberError" ng-cloak>
-                        <p>What do you want to know?</p>
-                        <a class="btn btn-primary" href="#/perimeter">Perimeter</a>
-                        <a id="area" class="btn btn-primary" href="#/area">Area</a>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div ng-show="number && !numberError" class="offset1 span5">
-            <div ng-view></div>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a class="brand" href="#">FlagQuiz</a>
+            <ul class="nav">
+                <li><a href="#">Do you know all the country flags? Prove it!</a></li>
+            </ul>
+            <ul class="nav" style="float: right;">
+                <li ng-show="!gamestart">
+                    <form style="margin: 5px 0 0 0;">
+                        <input style="margin: 0;" type="text" ng-model="username" placeholder="Insert your name" />
+                        <button style="margin: 0;" class="btn btn-primary" ng-click="gamestart = true">Start!</button>
+                    </form>
+                </li>
+                <li ng-show="gamestart" ng-cloak><a href="#">Player {{ username }}</a></li>
+            </ul>
         </div>
     </div>
 
+    <div class="row-fluid">
+        <div class="span8">
+            <ul ng-cloak ng-show="gamestart" class="countries">
+                <li ng-repeat="country in countries"><a class="btn" ng-class="country.name == selectedCountry.name && 'btn-warning' || 'btn-primary'" ng-click="setCountry(country)">{{ country.name }}</a></li>
+            </ul>
+        </div>
+        <div class="span4">
+            <ul ng-cloak ng-show="gamestart" class="f32">
+                <li ng-repeat="country in countries" class="flag" ng-class="country['alpha-2']|lowercase" ng-class="country['alpha-2'] == selectedFlag['alpha-2'] && 'flagSelected' || 'cleanFlag'" ng-click="setFlag(country)"></li>
+            </ul>
+        </div>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="//code.jquery.com/jquery-2.0.3.js"></script>
     <script src="js/app.js"></script>

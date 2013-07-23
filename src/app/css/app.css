@@ -21,3 +21,21 @@ div.center {
 img {
     width: 320px;
 }
+
+ul.f32 > li {
+    margin: 10px 10px 0 0;
+}
+
+ul.f32 > li:hover {
+    box-shadow: 0 0 10px #555;
+}
+
+ul.countries > li {
+    float: left;
+    list-style: none;
+    margin: 5px 10px 0 0;
+}
+
+.flagSelected {
+    border: 4px solid green;
+}
