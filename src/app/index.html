@@ -18,7 +18,7 @@
                 </fieldset>
 
                 <div ng-show="name" class="center" ng-cloak>
-                    <h1>Hello {{ name }}</h1>
+                    <h1 id="greeting">Hello {{ name }}</h1>
                     <fieldset>
                         <label>Insert a number:</label>
                         <input type="text" ng-model="number" placeholder="Insert a number" min="0" />
@@ -27,7 +27,7 @@
                     <div ng-show="number && !numberError" ng-cloak>
                         <p>What do you want to know?</p>
                         <a class="btn btn-primary" href="#/perimeter">Perimeter</a>
-                        <a class="btn btn-primary" href="#/area">Area</a>
+                        <a id="area" class="btn btn-primary" href="#/area">Area</a>
                     </div>
                 </div>
             </form>

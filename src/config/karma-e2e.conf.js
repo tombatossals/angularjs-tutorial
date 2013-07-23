@@ -1,4 +1,5 @@
 basePath = '../';
+urlRoot = '/_karma_/';
 
 files = [
   ANGULAR_SCENARIO,
@@ -9,9 +10,12 @@ files = [
 autoWatch = false;
 browsers = [ 'PhantomJS' ];
 singleRun = true;
+runnerPort = 9999;
+
+logLevel = LOG_INFO;
 
 proxies = {
-  '/': 'http://localhost:9876/'
+  '/': 'http://localhost:80/dev/angularjs-tutorial/src/'
 };
 
 junitReporter = {

@@ -30,11 +30,10 @@ module.exports = function(grunt) {
         },
         karma: {
             unit: {
-                configFile: 'config/karma.conf.js',
-                singleRun: true
+                configFile: 'config/karma.conf.js'
             },
             e2e: {
-                configFile: 'config/karma-e2e.conf.js',
+                configFile: 'config/karma-e2e.conf.js'
             }
         }
     });
