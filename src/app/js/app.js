@@ -15,21 +15,87 @@
         $scope.gamestart = false;
         $scope.selectedCountry = undefined;
         $scope.selectedFlag = undefined;
+        $scope.correctAnswers = [];
+        $scope.badAnswers = [];
+        $scope.allCountries = undefined;
+        $scope.halloffame = [];
+        $scope.score = 0;
+
         $http.get("json/all.json").success(function(data, status) {
-            $scope.countries = cropAndMix(data, 20);
+            $scope.allCountries = data;
+            $scope.countries = cropAndMix(data, 5);
         });
 
-        $scope.setCountry = function(country) {
+        $scope.setSelectedCountry = function(country) {
             $scope.selectedCountry = country;
         };
 
-        $scope.setFlag = function(country) {
+        $scope.setSelectedFlag = function(country) {
             $scope.selectedFlag = country;
-            console.log(country);
         };
 
+        $scope.setCountryColor = function(country) {
+            if ($scope.correctAnswers.indexOf(country.name) !== -1) {
+                return 'btn-success';
+            }
+
+            if ($scope.badAnswers.indexOf(country.name) !== -1) {
+                return 'btn-danger';
+            }
+
+            if ($scope.selectedCountry && $scope.selectedCountry.name == country.name) {
+                return 'btn-warning';
+            }
+            return 'btn-primary';
+        };
+
+        $scope.checkIfGameIsOver = function() {
+            if ($scope.correctAnswers === undefined || !$scope.badAnswers === undefined || !$scope.countries) return;
+
+            if (($scope.correctAnswers.length + $scope.badAnswers.length) === $scope.countries.length) {
+                $scope.gamestart = false;
+                $scope.countries = cropAndMix($scope.allCountries, 10);
+                $scope.halloffame.push({ user: $scope.username, score: $scope.score });
+                $scope.username = undefined;
+                $scope.score = 0;
+            }
+        };
+
+        $scope.setFlagColor = function(country) {
+            var code = country['alpha-2'];
+            var selected = "";
+            if ($scope.selectedFlag && $scope.selectedFlag.name === country.name) {
+                selected = " flagSelected";
+            }
+            return code.toLowerCase() + selected;
+        };
+
+        $scope.$watch("selectedFlag", function(country) {
+            $scope.checkIfGameIsOver();
+            if ($scope.selectedCountry && $scope.selectedFlag) {
+                if ($scope.selectedCountry.name === $scope.selectedFlag.name) {
+                    $scope.correctAnswers.push($scope.selectedCountry.name);
+                    $scope.score++;
+                } else {
+                    $scope.badAnswers.push($scope.selectedCountry.name);
+                    $scope.score--;
+                }
+                $scope.selectedFlag = undefined;
+            }
+        });
+
         $scope.$watch("selectedCountry", function(country) {
-            console.log(country);
+            $scope.checkIfGameIsOver();
+            if ($scope.selectedCountry && $scope.selectedFlag) {
+                if ($scope.selectedCountry.name === $scope.selectedFlag.name) {
+                    $scope.correctAnswers.push($scope.selectedCountry.name);
+                    $scope.score++;
+                } else {
+                    $scope.badAnswers.push($scope.selectedCountry.name);
+                    $scope.score--;
+                }
+                $scope.selectedFlag = undefined;
+            }
         });
     }]);
 

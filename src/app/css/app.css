@@ -34,8 +34,21 @@ ul.countries > li {
     float: left;
     list-style: none;
     margin: 5px 10px 0 0;
+    border: 4px solid white;
+}
+
+ul.f32 > li > a {
+    display: block;
 }
 
 .flagSelected {
     border: 4px solid green;
+}
+
+.btn-danger {
+    opacity: .3;
+}
+
+.btn-success {
+    opacity: .3;
 }
