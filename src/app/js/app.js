@@ -24,6 +24,8 @@
         $http.get("json/all.json").success(function(data, status) {
             $scope.allCountries = data;
             $scope.countries = cropAndMix(data, 5);
+            $scope.flags = $scope.countries.slice(0);
+            $scope.flags = cropAndMix($scope.flags, 5);
         });
 
         $scope.setSelectedCountry = function(country) {
@@ -54,8 +56,12 @@
 
             if (($scope.correctAnswers.length + $scope.badAnswers.length) === $scope.countries.length) {
                 $scope.gamestart = false;
-                $scope.countries = cropAndMix($scope.allCountries, 10);
-                $scope.halloffame.push({ user: $scope.username, score: $scope.score });
+                $scope.countries = cropAndMix($scope.allCountries, 5);
+                $scope.flags = $scope.countries.slice(0);
+                $scope.flags = cropAndMix($scope.flags, 5);
+                var hof = $scope.halloffame.splice();
+                hof.push({ user: $scope.username, score: $scope.score });
+                $scope.halloffame = hof;
                 $scope.username = undefined;
                 $scope.score = 0;
             }

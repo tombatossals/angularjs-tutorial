@@ -36,7 +36,7 @@
         </div>
         <div class="span4">
             <ul ng-cloak class="f32">
-                <li ng-repeat="country in countries" class="flag" ng-class="setFlagColor(country)" ng-click="setSelectedFlag(country)"></li>
+                <li ng-repeat="country in flags" class="flag" ng-class="setFlagColor(country)" ng-click="setSelectedFlag(country)"></li>
             </ul>
             <h1>Score: {{ score }}</h1>
         </div>
